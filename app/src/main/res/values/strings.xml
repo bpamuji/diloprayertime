@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dilo Jadwal Sholat</string>
+    <string name="fajr">Fajr</string>
+    <string name="shurooq">Shurooq</string>
+    <string name="dhuhr">Dhuhr</string>
+    <string name="maghrib">Maghrib</string>
+    <string name="isha">Isha</string>
+    <string name="asr">Asr</string>
+</resources>
