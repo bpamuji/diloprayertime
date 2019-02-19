@@ -40,7 +40,7 @@ public class FetchAddressIntentService extends IntentService {
 
         if (location == null) {
             msg = "No location, can't go further without location";
-            sendResultsToReceiver(0, msg);
+            sendResultsToReceiver(0, msg,"");
             return;
         }
 
@@ -58,17 +58,19 @@ public class FetchAddressIntentService extends IntentService {
 
         if (addresses == null || addresses.size() == 0) {
             msg = "No address found for the location";
-            sendResultsToReceiver(1, msg);
+            sendResultsToReceiver(1, msg,"");
         } else {
             Address address = addresses.get(0);
             String addressDetails = address.getSubAdminArea();
-            sendResultsToReceiver(2, addressDetails);
+            String addressDetails2 = address.getCountryName();
+            sendResultsToReceiver(2, addressDetails, addressDetails2);
         }
     }
 
-    private void sendResultsToReceiver(int resultCode, String message) {
+    private void sendResultsToReceiver(int resultCode, String message, String message2) {
         Bundle bundle = new Bundle();
         bundle.putString("address_result", message);
+        bundle.putString("address_result2", message2);
         addressResultReceiver.send(resultCode, bundle);
     }
 }

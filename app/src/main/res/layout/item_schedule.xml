@@ -1,8 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_schedule"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <RelativeLayout
+        android:padding="@dimen/_8sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_calendar"
+            android:src="@drawable/img_calendar"
+            android:contentDescription="@string/app_name"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"/>
+        <TextView
+            android:id="@+id/tv_calendar_day"
+            tools:text="Sabtu"
+            android:layout_toRightOf="@id/img_calendar"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:textSize="@dimen/_12sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_toEndOf="@id/img_calendar"/>
+        <TextView
+            android:id="@+id/tv_calendar"
+            tools:text="20 February 2019"
+            android:layout_toRightOf="@id/img_calendar"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_below="@id/tv_calendar_day"
+            android:textSize="@dimen/_9sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_toEndOf="@id/img_calendar"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_fajr"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/fajr"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_fajr_time"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            tools:text="05.00 AM"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:background="@android:color/darker_gray"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_shurooq"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/shurooq"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_shurooq_time"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            tools:text="06.00 AM"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view2"
+        android:background="@android:color/darker_gray"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_dhuhr"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/dhuhr"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_dhuhr_time"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            tools:text="05.00 AM"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view3"
+        android:background="@android:color/darker_gray"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_asr"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/asr"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_asr_time"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            tools:text="06.00 AM"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view4"
+        android:background="@android:color/darker_gray"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_maghrib"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/maghrib"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_maghrib_time"
+            android:padding="@dimen/_8sdp"
+            tools:text="05.00 AM"
+            android:textAllCaps="true"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/view5"
+        android:background="@android:color/darker_gray"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_isha"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/isha"
+            android:layout_weight="2"
+            android:gravity="start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_isha_time"
+            android:padding="@dimen/_8sdp"
+            android:textAllCaps="true"
+            tools:text="06.00 AM"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </LinearLayout>

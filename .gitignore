@@ -12,4 +12,6 @@
 /captures
 /.idea
 /.gradle
+/key
+/app/release
 .externalNativeBuild

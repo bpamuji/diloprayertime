@@ -9,17 +9,20 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface NetworkService {
-    @GET("{country}/weekly.json")
-    fun getJadWalWeekly(@Path("country") country: String, @Query("key") key: String): Call<JadwalResponse>
+//    @GET("v1/{country}/weekly.json")
+//    fun getJadWalWeekly(@Path("country") country: String, @Query("key") key: String): Call<JadwalResponse>
 
-    @GET("{country}/daily.json")
-    fun getJadwalDaily(@Path("country") country: String, @Query("key") key: String) : Call<JadwalResponse>
+    @GET("v1/timingsByCity")
+    fun getDailyTimePrayer(@Query("city") city: String,
+                           @Query("country") country: String,
+                           @Query("method") method:Int)
+            : Call<JadwalResponse>
 
     companion object {
         fun create(): NetworkService {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://muslimsalat.com/")
+                .baseUrl("http://api.aladhan.com/")
                 .build()
             return retrofit.create(NetworkService::class.java)
         }
