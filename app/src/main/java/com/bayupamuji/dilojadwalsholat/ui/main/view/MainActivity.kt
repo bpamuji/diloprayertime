@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity(), LocationContract {
         setSupportActionBar(toolbar)
         initLocation()
         initNavigation()
-        loadFragment(savedInstanceState,"daily")
     }
 
     private fun initLocation() {
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity(), LocationContract {
                         .beginTransaction()
                         .replace(R.id.content_frame, DailyFragment(), DailyFragment::class.java.simpleName)
                         .addToBackStack(null)
-                        .commit()
+                        .commitAllowingStateLoss()
                 }
                 "hijri" ->{
                     supportFragmentManager
@@ -99,6 +98,7 @@ class MainActivity : AppCompatActivity(), LocationContract {
                 else -> true
             }
         }
+        nav_view.menu.getItem(0).isChecked = true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -129,6 +129,7 @@ class MainActivity : AppCompatActivity(), LocationContract {
     override fun showResults(city: String?, location: String?) {
         sp.setString("sp_city",city)
         sp.setString("sp_country",location)
+        loadFragment(null,"daily")
     }
 
     override fun showToast(s: String) {
