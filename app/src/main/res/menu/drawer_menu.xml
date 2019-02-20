@@ -7,16 +7,12 @@
             android:icon="@drawable/ic_today"
             android:title="@string/today"/>
         <item
-            android:id="@+id/weekly_menu"
+            android:id="@+id/hijri_menu"
             android:icon="@drawable/ic_weeks"
-            android:title="@string/weeks"/>
+            android:title="@string/hijri"/>
         <item
-            android:id="@+id/monthly_menu"
+            android:id="@+id/gregorian_menu"
             android:icon="@drawable/ic_monthly"
-            android:title="@string/month"/>
-        <item
-            android:id="@+id/yearly_menu"
-            android:icon="@drawable/ic_yearly"
-            android:title="@string/year"/>
+            android:title="@string/gregorian"/>
     </group>
 </menu>

@@ -1,8 +1,13 @@
 package com.bayupamuji.dilojadwalsholat.data.entity
 
-data class JadwalResponse(
+data class ScheduleResponse(
     val code:Int,
     val data: Data
+)
+
+data class MonthScheduleResponse(
+    val code: Int,
+    val data: List<Data>
 )
 
 data class Data(

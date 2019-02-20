@@ -42,6 +42,7 @@ class MainAdapter(private val list: MutableList<Data>) : RecyclerView.Adapter<Ma
 
             itemView.tv_calendar_day.text = day
             itemView.tv_calendar.text = "$date $month $year / $dateH $monthH $yearH"
+            itemView.tv_imsak_time.text = item.timings.Imsak
             itemView.tv_fajr_time.text = item.timings.Fajr
             itemView.tv_shurooq_time.text = item.timings.Sunrise
             itemView.tv_dhuhr_time.text = item.timings.Dhuhr

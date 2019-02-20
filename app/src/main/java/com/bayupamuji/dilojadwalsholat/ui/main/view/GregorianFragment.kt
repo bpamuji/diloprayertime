@@ -1,6 +1,5 @@
 package com.bayupamuji.dilojadwalsholat.ui.main.view
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.chip.Chip
 import android.support.design.chip.ChipGroup
@@ -21,14 +20,13 @@ import com.bayupamuji.dilojadwalsholat.ui.main.adapter.MainAdapter
 import com.bayupamuji.dilojadwalsholat.ui.main.presenter.MainPresenter
 import com.bayupamuji.dilojadwalsholat.utils.SharePreferencesUtils
 
-class DailyFragment : Fragment(), MainView {
-
+class GregorianFragment : Fragment(), MainView {
     private val countries = mutableListOf<String>()
     private val schedules = mutableListOf<Data>()
-    private lateinit var sp : SharePreferencesUtils
+
+    private lateinit var sp: SharePreferencesUtils
     private var city : String? = ""
     private var country : String? = ""
-
     private lateinit var presenter: MainPresenter
     private lateinit var adapter: MainAdapter
     private lateinit var repo: TimePrayerScheduleRepoImpl
@@ -61,7 +59,7 @@ class DailyFragment : Fragment(), MainView {
         sp = SharePreferencesUtils(activity as MainActivity)
         city = sp.getString("sp_city")
         country = sp.getString("sp_country")
-        city?.let { country?.let { country -> presenter.getDailySchedule(it, country) } }
+        city?.let { country?.let { country -> presenter.getScheduleGregorian(it, country) } }
         tvRecentCountry.text = "$country, $city"
     }
 
@@ -85,16 +83,11 @@ class DailyFragment : Fragment(), MainView {
         progressBar.visibility = View.GONE
         card.visibility = View.VISIBLE
         rvSchedule.visibility = View.VISIBLE
+        rvSchedule.smoothScrollToPosition(0)
     }
 
     override fun onError(message: String) {
-        Toast.makeText(activity, "Error $message",Toast.LENGTH_SHORT).show()
-    }
-
-    override fun showSchedule(result: Data) {
-        schedules.clear()
-        schedules.add(result)
-        adapter.notifyDataSetChanged()
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun showCountry(listCountry: List<String>) {
@@ -108,20 +101,27 @@ class DailyFragment : Fragment(), MainView {
             chips.addView(chip)
 
             chip.setOnClickListener {
-                presenter.getDailySchedule("Indonesia", countries[index])
+                presenter.getScheduleByHijri("Indonesia",countries[index])
                 tvRecentCountry.text = "${countries[index]}, Indonesia"
-
-                if (!chip.isChecked) activity?.let {
-                    city?.let { city -> country?.let { country -> presenter.getDailySchedule(city, country) } }
+                if (!chip.isChecked) {
+                    city?.let {
+                        country?.let {
+                                countries-> presenter.getScheduleGregorian(it,countries)
+                        }
+                    }
                     tvRecentCountry.text = "$country, $city"
                 }
             }
         }
     }
 
-    override fun showScheduleByMonth(data: List<Data>) {
-        // implemet on hijri month fragment
+    override fun showSchedule(result: Data) {
+        //implement on DayliFragment
     }
 
+    override fun showScheduleByMonth(data: List<Data>) {
+        schedules.clear()
+        schedules.addAll(data)
+        adapter.notifyDataSetChanged()
+    }
 }
-
